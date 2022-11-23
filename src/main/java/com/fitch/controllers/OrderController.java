@@ -38,7 +38,7 @@ public class OrderController {
     // PATCH endpoint to "pay the bill". All it does is updates the "status" field of the order to "Paid"
     // Once the status is paid, it will no longer be retrieved when fetching the bill for a table
     @PatchMapping("/bill/{tableNo}/pay")
-    boolean payBill(@PathVariable int tableNo){
+    int payBill(@PathVariable int tableNo){
         return orderService.payBill(tableNo);
     }
 

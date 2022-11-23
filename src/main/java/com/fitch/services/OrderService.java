@@ -13,5 +13,5 @@ public interface OrderService {
 
     Bill getBill(int tableNo);
 
-    boolean payBill(int tableNo);
+    int payBill(int tableNo);
 }

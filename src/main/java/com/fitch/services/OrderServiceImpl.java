@@ -102,7 +102,7 @@ public class OrderServiceImpl implements OrderService{
 
     // All this does is sets the Order status to "Paid" so it will not be included in future bills
     @Override
-    public boolean payBill(int tableNo) {
+    public int payBill(int tableNo) {
         List<Order> activeOrders = orderRepository.findByRestaurantTableAndStatus(restaurantTableRepository.getReferenceById(tableNo), "Active");
 
         if(activeOrders.size() >0) {
@@ -110,9 +110,9 @@ public class OrderServiceImpl implements OrderService{
                 order.setStatus("Paid");
                 orderRepository.save(order);
             }
-            return true;
+            return 1;
         } else {
-            return false; //in case there are no active orders to pay
+            return 0; //in case there are no active orders to pay
         }
     }
 }
